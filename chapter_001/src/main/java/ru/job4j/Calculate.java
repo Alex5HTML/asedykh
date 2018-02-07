@@ -7,12 +7,12 @@ package ru.job4j;
  *@since 05.02.2018
  */
 
-public class Calculate{
+public class Calculate {
 	  /**
 	   *Main
 	   *@param args - args
 	   */
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		System.out.println("Hello World!");
 	}
 	  /**
