@@ -8,8 +8,7 @@ public class Fit {
 	 * @return идеальный вес.
 	 */
 	 double manWeight(double height) {
-		 double weight = (height - 100) * 1.15;
-		 return weight;
+		 return (height - 100) * 1.15;
 	 }	
 
 	/**
@@ -18,7 +17,6 @@ public class Fit {
 	 * @return идеальный вес.
 	 */
 	 double womanWeight(double height) {
-		 double weight = (height - 110) * 1.15;
-		 return weight;
+		 return (height - 110) * 1.15;
 	 }	
 }	
