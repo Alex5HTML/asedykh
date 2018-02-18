@@ -5,14 +5,15 @@ package ru.job4j.calculator;
  */
  public class Converter {
 	 
+	 public final int euroMult = 70;
+	 public final int dollarMult = 60;
 	 /**
 	  * Конвертируем рубли в евро.
 	  * @param value рубли.
 	  * @return Евро.
 	  */
 	public int rubleToEuro(int value) {
-		int mult = 70;
-		int result = value / mult;
+		int result = value / euroMult;
 		return result;
 	}
 	
@@ -22,8 +23,7 @@ package ru.job4j.calculator;
 	 * @return Доллоры.
 	 */
 	public int rubleToDollar(int value) {
-		int mult = 60;
-		int result = value / mult;
+		int result = value / dollarMult;
 		return result;
 	}
 	
@@ -33,8 +33,7 @@ package ru.job4j.calculator;
 	 * @return рубли.
 	 */
 	public int euroToRuble(int value) {
-		int mult = 70;
-		int result = value * mult;
+		int result = value * euroMult;
 		return result;
 	}
 	
@@ -44,8 +43,7 @@ package ru.job4j.calculator;
 	 * @return рубли.
 	 */
 	public int dollarToRuble(int value) {
-		int mult = 60;
-		int result = value * mult;
+		int result = value * dollarMult;
 		return result;
 	}	
  }	
