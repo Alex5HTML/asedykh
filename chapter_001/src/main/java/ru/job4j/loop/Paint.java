@@ -6,7 +6,38 @@ package ru.job4j.loop;
  * @since 24.02.18
  */
  public class Paint {
-	 /**
+	  public String rightTrl(int height) {
+        StringBuilder screen = new StringBuilder();
+        int weight = height;
+        for (int row = 0; row != height; row++) {
+            for (int column = 0; column != weight; column++) {
+                if (row >= column) {
+                    screen.append("^");
+                } else {
+                    screen.append(" ");
+                }
+            }
+            screen.append(System.lineSeparator());
+        }
+        return screen.toString();
+    }
+
+    public String leftTrl(int height) {
+        StringBuilder screen = new StringBuilder();
+        int weight = height;
+        for (int row = 0; row != height; row++) {
+            for (int column = 0; column != weight; column++) {
+                if (row >= weight - column - 1) {
+                    screen.append("^");
+                } else {
+                    screen.append(" ");
+                }
+            }
+            screen.append(System.lineSeparator());
+        }
+        return screen.toString();
+    }
+	/**
 	  * Метод рисует пирамиду.
 	  * @param height, высота пирамиды.
 	  */
