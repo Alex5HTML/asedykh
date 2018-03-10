@@ -13,8 +13,8 @@ import static org.junit.Assert.assertThat;
  public class BoardTest {
 	 @Test
 	 public void whenPaintBoardWidthThreeAndHeightThreeThenStringWithThreeColsAndThreeRows() {
-		 Board board = new Board();
-		 String result = board.paint(3, 3);
+		 Board test = new Board();
+		 String result = test.paint(3, 3);
 		 final String line = System.lineSeparator();
 		 String expected = String.format("x x%s x %sx x%s", line, line, line);
 		 assertThat(result, is(expected));
@@ -22,8 +22,8 @@ import static org.junit.Assert.assertThat;
 	 
 	 @Test
 	 public void whenPaintBoardWithWidthFiveAndHeightFourThenStringWithFiveColsAndFourRows() {
-		 Board board = new Board();
-		 String result = board.paint(5, 4);
+		 Board test = new Board();
+		 String result = test.paint(5, 4);
 		 final String line = System.lineSeparator();
 		 String expected = String.format("x x x%s x x %sx x x%s x x %s", line, line, line, line);
 		 assertThat(result, is(expected));

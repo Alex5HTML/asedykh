@@ -11,12 +11,12 @@ public class BubbleSort {
 	  * @return Перевернутый массив.
 	  */
 	public int[] sort(int[] array) {
-		for (int i = 0; i < array.length; i++) {
-			for (int x = 0; x < array.length - 1; x++) {
-				if (array[x] > array[x + 1]) {
-					int tmp = array[x];
-					array[x] = array[x + 1];
-					array[x + 1] = tmp;
+		for (int out = 0; out < array.length; out++) {
+			for (int in = 0; in < array.length - 1; in++) {
+				if (array[in] > array[in + 1]) {
+					int tmp = array[in];
+					array[in] = array[in + 1];
+					array[in + 1] = tmp;
 				}
 			}
 		}

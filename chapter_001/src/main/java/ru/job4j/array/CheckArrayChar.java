@@ -16,10 +16,10 @@ public class CheckArrayChar {
 		char[] originChar = origin.toCharArray();
 		char[] subChar = sub.toCharArray();
 		boolean result = false;
-		for (int i = 0; i < subChar.length; i++) {
-			for (int j = 0; j < originChar.length; j++) {
-				if (subChar[i] == originChar[j]) {
-					j++;
+		for (int out = 0; out < subChar.length; out++) {
+			for (int in = 0; in < originChar.length; in++) {
+				if (subChar[out] == originChar[in]) {
+					in++;
 					result = true;
 					break;
 				} else {
