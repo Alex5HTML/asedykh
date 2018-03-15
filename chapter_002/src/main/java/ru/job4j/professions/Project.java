@@ -1,6 +1,8 @@
 package ru.job4j.professions;
 
-public class Project extends Profession {
+public class Project {
+	
+	public String name;
 	
 	public Project(String name) {
 		this.name = name;
