@@ -33,7 +33,7 @@ public class Item {
 		this.name = name;
 	}
 	
-	public void setDesctiption(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 	
