@@ -38,7 +38,9 @@ public class StartUITest {
 		Item item1 = tracker.add(new Item("test name1", "desc", 1234L));
 		Input input = new StubInput(new String[]{"3", item.getId(), "6"});
 		new StartUI(input, tracker).init();
-		assertThat(tracker.findAll()[0].getName(), is("test name1"));
+		Item[] testArray = new Item[1];
+		testArray[0] = item1;
+		assertThat(tracker.findAll(), is(testArray));
 	}
 	
 	@Test
