@@ -26,12 +26,14 @@ public class TrackerTest {
 	@Test
 	public void whenDeleteItemThenTrackerDeleteItem() {
 		Tracker tracker = new Tracker();
-		Item item = new Item("test1", "testDescription", 123L);
-        Item item1 = new Item("test2", "testDescription", 123L);
-		tracker.add(item);
-        tracker.add(item1);
-		tracker.delete(item.getId());
-		assertThat(tracker.findAll()[0], is(item1));
+		Item item1 = new Item("test1", "testDescription", 123L);
+        Item item2 = new Item("test2", "testDescription", 123L);
+		tracker.add(item1);
+        tracker.add(item2);
+		Item[] testArray = new Item[1];
+		testArray[0] = item1;
+		tracker.delete(item2.getId());
+		assertThat(tracker.findAll(), is(testArray));
 	}
 	
 	@Test

@@ -35,11 +35,17 @@ public class Tracker {
 	public void delete(String id) {
 		Item[] result = new Item[items.length - 1];
 		for (int index = 0; index != this.position; index++) {
-			if (items[index].getId().equals(id)) {
+			if (items[index].getId().equals(id) && index != (position - 1)) {
 			    System.arraycopy(items, 0, result, 0, index);
 			    System.arraycopy(items, index + 1, result, index, items.length - index - 1);
 			    System.arraycopy(result, 0, items, 0, items.length - 1);
-				this.position = this.position - 1;
+                this.position = this.position - 1;
+				break;
+			} else if (items[index].getId().equals(id) && index == (position - 1)) {
+				System.arraycopy(items, 0, result, 0, index);
+				System.arraycopy(result, 0, items, 0, items.length - 1);
+                this.position = this.position - 1;
+				break;
 			}
 		}
 	}
