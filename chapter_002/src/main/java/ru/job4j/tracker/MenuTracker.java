@@ -1,20 +1,36 @@
 package ru.job4j.tracker;
 
+	/**
+     * @author Alexandr Sedykh
+     * @version $Id$
+     * @since 24.03.18
+     */
+
 class EditItem implements UserAction {
 	
 	public int key() {
 		return 2;
 	}
 	
+	/**
+	 * Выполнение выбранного пункта меню.
+	 */
+	
 	public void execute(Input input, Tracker tracker) {
 		System.out.println("---------- Редактирование заявки ----------");
 		String id = input.ask("Введите ID заявки: ");
 		Item item = tracker.findById(id);
+		String name = input.ask("Введите новое имя заявки: ");
 		String desc = input.ask("Введите описание изменения: ");
+		item.setName(name);
 		item.setDescription(desc);
 		tracker.replace(id, item);
-		System.out.println("---------- Заявка " + item.getId() + " изменена ----------");
+		System.out.println("---------- Заявка " + item.getName() + "c ID " + item.getId() + " изменена ----------");
 	}
+	
+	/**
+	  * Пункт меню, выводимый на консоль.
+	  */
 	
 	public String info() {
 		return String.format("%s. %s", this.key(), "Редактировать заявку");
@@ -42,10 +58,19 @@ public class MenuTracker {
 		this.actions[6] = new Exit();
 	}
 	
+	/**
+	 * Выбор пользователем пункта меню.
+	 * @param key ключ, пункт меню, выбираемый пользователем.
+	 */
+	
 	public void select(int key) {
 		this.actions[key].execute(this.input, this.tracker);
 	}
 	
+	/**
+	  * Выводит в консоль меню.
+	  */
+	  
 	public void show() {
 		for (UserAction action : this.actions) {
 			if (action != null) {
@@ -60,6 +85,10 @@ public class MenuTracker {
 			return 0;
 		}
 		
+		/**
+	     * Выполнение выбранного пункта меню.
+	     */
+		
 		public void execute(Input input, Tracker tracker) {
 			System.out.println("---------- Добавление новой заявки ----------");
 			String name = input.ask("Введите имя заявки: ");
@@ -69,6 +98,10 @@ public class MenuTracker {
 			tracker.add(item);
 			System.out.println("---------- Новая заявка с ID : " + item.getId() + " -----------");
 		}
+		
+		/**
+	     * Пункт меню, выводимый на консоль.
+	     */
 		
 		public String info() {
 			return String.format("%s. %s", this.key(), "Добавить новую заявку");
@@ -81,6 +114,10 @@ public class MenuTracker {
 			return 1;
 		}
 		
+		/**
+	     * Выполнение выбранного пункта меню.
+	     */		
+		
 		public void execute(Input input, Tracker tracker) {
 			System.out.println("---------- Список всех заявок ----------");
 			Item[] items = tracker.findAll();
@@ -91,6 +128,10 @@ public class MenuTracker {
 			}
 		}
 		
+		/**
+	     * Пункт меню, выводимый на консоль.
+	     */
+	  
 		public String info() {
 			return String.format("%s. %s", this.key(), "Показать все заявки");
 		}
@@ -102,6 +143,10 @@ public class MenuTracker {
 			return 3;
 		}
 		
+		/**
+	     * Выполнение выбранного пункта меню.
+	     */		
+		
 		public void execute(Input input, Tracker tracker) {
 			System.out.println("---------- Удаление заявки ----------");
 			String id = input.ask("Введите ID заявки: ");
@@ -109,6 +154,10 @@ public class MenuTracker {
 			System.out.println("---------- Заявка " + id + " удалена ----------");
 		}
 		
+		/**
+	     * Пункт меню, выводимый на консоль.
+	     */
+	  
 		public String info() {
 			return String.format("%s. %s", this.key(), "Удалить заявку");
 		}
@@ -120,6 +169,10 @@ public class MenuTracker {
 			return 4;
 		}
 		
+		/**
+	     * Выполнение выбранного пункта меню.
+	     */		
+		
 		public void execute(Input input, Tracker tracker) {
 			System.out.println("---------- Поиск заявки по ID ----------");
 			String id = input.ask("Введите ID заявки: ");
@@ -128,6 +181,10 @@ public class MenuTracker {
 			System.out.println("---------- Описание: " + item.getDescription() + " ----------");
 		}
 		
+		/**
+	     * Пункт меню, выводимый на консоль.
+	     */
+	  
 		public String info() {
 			return String.format("%s. %s", this.key(), "Найти заявку по Id");
 		}
@@ -139,6 +196,10 @@ public class MenuTracker {
 			return 5;
 		}
 		
+		/**
+	     * Выполнение выбранного пункта меню.
+	     */		
+		
 		public void execute(Input input, Tracker tracker) {
 			System.out.println("---------- Поиск заявки по имени ----------");
 			String name = input.ask("Введите имя заявки: ");
@@ -149,6 +210,10 @@ public class MenuTracker {
 			}
 		}	
 		
+		/**
+	     * Пункт меню, выводимый на консоль.
+	     */
+	  
 		public String info() {
 			return String.format("%s. %s", this.key(), "Найти заявку по имени");
 		}
@@ -162,6 +227,10 @@ public class MenuTracker {
 		
 		public void execute(Input input, Tracker tracker) {
 		}
+		
+		/**
+	     * Пункт меню, выводимый на консоль.
+	     */
 		
 		public String info() {
 			return String.format("%s. %s", this.key(), "Выход");
